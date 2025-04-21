@@ -13,7 +13,12 @@ class CustomUserAdmin(UserAdmin):
     # cac truong khi edit user???
     fieldsets = UserAdmin.fieldsets + ((None, {'fields': ('name',)}),)
     # cac truong khi add user
-    add_fieldsets = UserAdmin.add_fieldsets + ((None, {'fields': ('name',)}),)
+    add_fieldsets = ( # cac truong xuat hien khi add user
+        (None, {
+            'classes': ('wide',),
+            'fields': ('username', 'email', 'name', 'password1', 'password2'),
+        }),
+    )
     # cac truong khi tim kiem user
     search_fields = ['email', 'username', 'name']
     # cac truong khi sap xep user

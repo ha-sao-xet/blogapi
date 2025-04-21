@@ -46,11 +46,7 @@ INSTALLED_APPS = [
     'posts.apps.PostsConfig',
 ]
 
-REST_FRAMEWORK = {
-    'DEFAUTL_PERRMISSION_CLASSES':[
-        'rest_framework.permissions.AllowAny',
-    ]
-}
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -62,6 +58,12 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES':[
+        'rest_framework.permissions.IsAuthenticated', # AllowAny
+    ],
+}
 
 CORS_ORIGIN_WHITELIST = (
     'http://localhost:3000',
